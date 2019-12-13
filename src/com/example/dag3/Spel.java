@@ -5,97 +5,96 @@ import java.util.Scanner;
 public class Spel {
     public static void main(String[] args) {
 
-        int antalSpel = 0;
-        int arrAntal = 3;
+        int numGames = 0;
+        int arrNum = 3;
 
-        int randomTecken = (int) (Math.random() * arrAntal);
+        int randomsign = (int) (Math.random() * arrNum);
 
-        String[] tecken = new String[3];
-        tecken[0] = "sten";
-        tecken[1] = "sax";
-        tecken[2] = "påse";
+        String[] sign = new String[3];
+        sign[0] = "rock";
+        sign[1] = "scissors";
+        sign[2] = "paper";
 
         Scanner scan = new Scanner(System.in);
 
         System.out.println("::.................................:: \n" +
-                "::           VÄLKOMMEN             ::"+
-                "\n::              till               ::\n" +
-                "::         Sten,sax,påse!          ::\n" +
-                "::.................................::" + "\n" +
-                "I det här spelet möter du datorn i ett klassiskt spel av sten,sax,påse \n" +
-                "Reglerna går till såhär: \nSten slår sax men blir plockad av påse, sax blir slagen av sten \n" +
-                "men klipper påse, påse plockar sten men blir klippt av sax" + "\n"
-                + ".................................:");
+                "::           Welcome               ::"+
+                "\n::              to                 ::\n" +
+                "::       rock,paper,scissors!      ::\n" +
+                "::.................................::" + "\n" );
 
-        for (int antalGanger = 0; antalGanger <= 100; antalGanger++) {
+        for (int numOfRounds = 0; numOfRounds <= sign.length; numOfRounds++) {
 
-            System.out.print(" Välj mellan sten, sax eller påse: ");
-            String inputTecken = scan.nextLine();
+            System.out.print(" pick between rock, paper, scissors: ");
+            String inputsign = scan.nextLine();
 
-            if (inputTecken.equals(tecken[0])) {
-                System.out.println("::::::::::::::::::::::::::::::::::::::: \n::         Du valde: " + inputTecken + "            ::");
-            } else if (inputTecken.equals(tecken[1])) {
-                System.out.println("::::::::::::::::::::::::::::::::::::::: \n::         Du valde: " + inputTecken + "             ::");
+            if (inputsign.equals(sign[0])) {
+                System.out.println("::::::::::::::::::::::::::::::::::::::: \n::         " +
+                    "you picked: " + inputsign + "            ::");
+            } else if (inputsign.equals(sign[1])) {
+                System.out.println("::::::::::::::::::::::::::::::::::::::: \n::        " +
+                    " you picked: " + inputsign + "             ::");
             }
-            if (inputTecken.equals(tecken[2])) {
-                System.out.println("::::::::::::::::::::::::::::::::::::::: \n::         Du valde: " + inputTecken + "            ::");
+            if (inputsign.equals(sign[2])) {
+                System.out.println("::::::::::::::::::::::::::::::::::::::: \n::         " +
+                    "you picked: " + inputsign + "            ::");
             }
 
             do {
 
 
-                if (randomTecken == 0 && inputTecken.equals(tecken[1])) {
-                    System.out.println(":: Datorn valde Sten, du förlorade!  ::\n:::::::::::::::::::::::::::::::::::::::");
-                    antalSpel++;
+                if (randomsign == 0 && inputsign.equals(sign[1])) {
+                    System.out.println(":: CPU picked rock, you lost!  ::\n:::::::::::::::::::::::::::::::::::::::");
+                    numGames++;
                 }
-                else if (randomTecken == 0 && inputTecken.equals(tecken[2])) {
-                    System.out.println("::   Datorn valde Sten, du vann!     ::\n:::::::::::::::::::::::::::::::::::::::");
-                    antalSpel++;
+                else if (randomsign == 0 && inputsign.equals(sign[2])) {
+                    System.out.println("::   CPU picked rock, you won!     ::\n:::::::::::::::::::::::::::::::::::::::");
+                    numGames++;
                 }
-                if (randomTecken == 1 && inputTecken.equals(tecken[2])) {
-                    System.out.println(":: Datorn valde sax, du förlorade!   ::\n:::::::::::::::::::::::::::::::::::::::");
-                    antalSpel++;
+                if (randomsign == 1 && inputsign.equals(sign[2])) {
+                    System.out.println(":: CPU picked scissors, you lost!   ::\n:::::::::::::::::::::::::::::::::::::::");
+                    numGames++;
                 }
-                else if (randomTecken == 1 && inputTecken.equals(tecken[0])) {
-                    System.out.println("::   Datorn valde sax, du vann!      ::\n:::::::::::::::::::::::::::::::::::::::");
-                    antalSpel++;
+                else if (randomsign == 1 && inputsign.equals(sign[0])) {
+                    System.out.println("::   CPU picked scissors, you won!      ::\n:::::::::::::::::::::::::::::::::::::::");
+                    numGames++;
                 }
-                if (randomTecken == 2 && inputTecken.equals(tecken[0])) {
-                    System.out.println(":: Datorn valde påse, du förlorade!  ::\n:::::::::::::::::::::::::::::::::::::::");
-                    antalSpel++;
+                if (randomsign == 2 && inputsign.equals(sign[0])) {
+                    System.out.println(":: CPU picked paper, you lost!  ::\n:::::::::::::::::::::::::::::::::::::::");
+                    numGames++;
                 }
-                else if (randomTecken == 2 && inputTecken.equals(tecken[1])) {
-                    System.out.println("::   Datorn valde påse, du vann!     ::\n:::::::::::::::::::::::::::::::::::::::");
-                    antalSpel++;
+                else if (randomsign == 2 && inputsign.equals(sign[1])) {
+                    System.out.println("::   CPU picked paper, you won!     ::\n:::::::::::::::::::::::::::::::::::::::");
+                    numGames++;
                 }
-                if (randomTecken == 0 && inputTecken.equals(tecken[0])) {
-                    System.out.println("Ni båda valde sten!? det blev oavgjort! \n:::::::::::::::::::::::::::::::::::::::");
-                    antalSpel++;
+                if (randomsign == 0 && inputsign.equals(sign[0])) {
+                    System.out.println("you both picked rock!? its a draw! \n:::::::::::::::::::::::::::::::::::::::");
+                    numGames++;
                 }
-                else if (randomTecken == 1 && inputTecken.equals(tecken[1])) {
-                    System.out.println(" Ni båda valde sax!? det blev oavgjort! \n:::::::::::::::::::::::::::::::::::::::");
-                    antalSpel++;
+                else if (randomsign == 1 && inputsign.equals(sign[1])) {
+                    System.out.println(" you both picked scissors!? its a draw! \n:::::::::::::::::::::::::::::::::::::::");
+                    numGames++;
                 }
-                if (randomTecken == 2 && inputTecken.equals(tecken[2])) {
-                    System.out.println("Ni båda valde sax!? det blev oavgjort! \n:::::::::::::::::::::::::::::::::::::::");
-                    antalSpel++;
+                if (randomsign == 2 && inputsign.equals(sign[2])) {
+                    System.out.println("you both picked scissors!? its a draw! \n:::::::::::::::::::::::::::::::::::::::");
+                    numGames++;
                 }
 
             }
 
-            while (antalGanger == antalSpel);
-            System.out.println("      Du har spelat: " + antalSpel + " spel." + "\n ... ... ... ... ... ... ... ...");
+            while (numOfRounds == numGames);
+            System.out.println("      you have played: " + numGames + " game." + "\n ... ... ... ... ... ... ... ...");
 
-            if(antalGanger == 2) {
-                System.out.print("Vill du avsluta spel? Y/N: ");
-                String avslutaSpel = scan.nextLine();
+            if(numOfRounds == 2) {
+                System.out.print("do you want to continue the game? Y/N: ");
+                String avslutagame = scan.nextLine();
 
-            if(avslutaSpel.equals("Y")){
-                System.out.println("\n Du har valt att avsluta spelet. Va på tiden \n                 HEJDÅ!");
+            if(avslutagame.equals("Y")){
+                System.out.println("\n you have chosen to quit the game, about time! \n                 bye!!");
                 break;
             }
-            else if(avslutaSpel.equals("N")) {
-                System.out.println("\n    Ja ja, vi kör igen då...");
+            else if(avslutagame.equals("N")) {
+                System.out.println("\n    yeye, lets play again...");
                 }
             }
 
